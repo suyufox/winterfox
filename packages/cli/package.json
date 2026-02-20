@@ -1,0 +1,41 @@
+{
+  "name": "@winterfox/cli",
+  "version": "1.0.0",
+  "description": "Winterfox CLI",
+  "main": "index.js",
+  "type": "commonjs",
+  "bin": {
+    "winfox": "./bin/winfox.exe"
+  },
+  "scripts": {
+    "postinstall": "cargo build --release && node scripts/copy-bin-universal.js",
+    "build": "cargo build --release && node scripts/copy-bin-universal.js",
+    "build:dev": "cargo build && node scripts/copy-bin-universal.js",
+    "clean": "cargo clean && if exist bin rmdir /s /q bin",
+    "test": "cargo test",
+    "lint": "cargo clippy",
+    "fmt": "cargo fmt"
+  },
+  "author": "Suyufox",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "rust",
+    "winterfox",
+    "tauri",
+    "desktop",
+    "cross-platform"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "os": [
+    "win32",
+    "darwin",
+    "linux"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ]
+}

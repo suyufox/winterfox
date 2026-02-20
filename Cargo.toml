@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = [
+ "src-tauri",
+ "packages/configs",
+ "packages/service",
+ "packages/plugins",
+ "packages/cli"
+]
+
+[workspace.metadata]
+format-version = "1"

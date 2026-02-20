@@ -1,2 +1,12 @@
 onlyBuiltDependencies:
+  - '@parcel/watcher'
   - esbuild
+  - lmdb
+  - msgpackr-extract
+
+packages:
+  - 'packages/*'
+
+link-workspace-packages: true # 自动链接工作区包
+shared-workspace-lockfile: true # 共享 lock 文件
+save-workspace-protocol: true # 保存 workspace 协议

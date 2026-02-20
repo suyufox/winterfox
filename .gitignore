@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 .DS_Store
+Thumbs.db
 dist
 dist-ssr
 coverage
@@ -37,3 +38,16 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+# Rust/Cargo
+target/
+Cargo.lock
+**/*.rs.bk
+
+# Tauri
+src-tauri/target/
+
+# Environment
+.env
+.env.local
+.env.*.local

@@ -1,0 +1,17 @@
+winterfox:
+  update:
+    enable: false
+    build_update: true
+  output_dir: Release
+webui:
+  dev_command: pnpm dev
+  build_command: pnpm build
+tauri:
+  dev_command: pnpm tauri dev
+  build_command: pnpm tauri build
+  android:
+    dev_command: pnpm tauri android dev
+    build_command: pnpm tauri android build
+  ios:
+    dev_command: pnpm tauri ios dev
+    build_command: pnpm tauri ios build
