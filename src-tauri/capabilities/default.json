@@ -6,6 +6,9 @@
     "main"
   ],
   "permissions": [
-    "core:default"
+    "core:default",
+    "winterfox-configs:default",
+    "winterfox-plugins:default",
+    "winterfox-service:default"
   ]
 }

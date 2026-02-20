@@ -18,7 +18,7 @@ identifier = "wen.suyufox.winterfox" # 应用程序唯一标识符（反向域�
 beforeDevCommand = "pnpm dev"     # 运行 `tauri dev` 前执行的命令，通常用于启动前端开发服务器。
 devUrl = "http://localhost:51515"   # 开发时 Tauri 加载的 URL。
 beforeBuildCommand = "pnpm build"   # 运行 `tauri build` 前执行的命令，用于构建前端生产资源。
-frontendDist = "../dist/winterfox/browser" # 构建后前端资产的目录路径。Tauri 会递归读取并嵌入此目录下的所有文件。
+frontendDist = "../dist" # 构建后前端资产的目录路径。Tauri 会递归读取并嵌入此目录下的所有文件。
 removeUnusedCommands = false        # 是否尝试在构建时移除插件中注册但未使用的命令（需 tauri-plugin >=2.1）。建议保持默认。
 # beforeBundleCommand = ""          # （可选）在 `tauri build` 的打包阶段开始前运行的脚本（钩子）。
 # additionalWatchFolders = []       # （可选）运行 `tauri dev` 时要额外监视的文件夹路径列表（例如共享的库目录）。
