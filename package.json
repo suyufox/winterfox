@@ -19,11 +19,13 @@
     "winfox": "winfox"
   },
   "dependencies": {
-    "@winterfox/cli": "workspace:*",
+    "@primeuix/themes": "^2.0.3",
+    "@tauri-apps/api": "^2.0.0",
     "@winterfox/configs": "workspace:*",
     "@winterfox/plugins": "workspace:*",
     "@winterfox/service": "workspace:*",
     "pinia": "^3.0.4",
+    "primevue": "^4.5.4",
     "vue": "^3.5.28",
     "vue-router": "^5.0.2"
   },
@@ -37,6 +39,7 @@
     "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",
+    "@winterfox/cli": "workspace:*",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-oxlint": "~1.46.0",

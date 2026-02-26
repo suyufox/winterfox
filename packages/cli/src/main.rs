@@ -1,8 +1,10 @@
-use clap::{Parser, Subcommand};
+use clap::Parser;
 
 // 包含构建时生成的构建信息
 // 这个文件在构建时由 build.rs 生成
 include!(concat!(env!("OUT_DIR"), "/build_info.rs"));
+
+mod commands;
 
 #[derive(Parser, Debug)]
 #[command(
@@ -20,12 +22,12 @@ include!(concat!(env!("OUT_DIR"), "/build_info.rs"));
 
 {all-args}{after-help}"
 )]
-struct Cli {
+struct Winfox {
     #[command(subcommand)]
-    command: Option<Commands>,
+    command: Option<commands::MainCommands>,
 
     /// 显示构建信息
-    #[arg(short, long)]
+    #[arg(long)]
     build_info: bool,
 
     /// 显示详细的构建信息
@@ -37,24 +39,8 @@ struct Cli {
     version: bool,
 }
 
-#[derive(Subcommand, Debug)]
-enum Commands {
-    /// 初始化配置文件
-    Init {
-        /// 配置文件路径
-        #[arg(short, long, default_value = "winfox.config.yaml")]
-        config: String,
-    },
-
-    /// 显示系统信息
-    Info,
-
-    /// 显示构建信息
-    BuildInfo,
-}
-
 fn main() {
-    let cli = Cli::parse();
+    let cli = Winfox::parse();
 
     // 处理全局选项
     if cli.version {
@@ -73,26 +59,21 @@ fn main() {
         return;
     }
 
-    // 处理子命令
+    use commands::MainCommands;
+
     match cli.command {
-        Some(Commands::Init { config }) => {
+        Some(MainCommands::Init { config }) => {
             println!("Initializing configuration at: {}", config);
             // 这里可以添加初始化配置文件的逻辑
         }
-        Some(Commands::Info) => {
+        Some(MainCommands::Info) => {
             show_system_info();
         }
-        Some(Commands::BuildInfo) => {
+        Some(MainCommands::BuildInfo) => {
             println!("=== Build Information ===");
             println!("{}", build_info_detailed());
         }
-        None => {
-            // 如果没有指定命令，显示帮助信息
-            println!("Welcome to {} v{}", BUILD_NAME, BUILD_VERSION);
-            println!("Type '{} --help' for more information", BUILD_NAME);
-            println!();
-            println!("Build: {}", build_info_summary());
-        }
+        None => {}
     }
 }
 
@@ -122,12 +103,9 @@ fn show_system_info() {
 
     println!();
     println!("=== Environment ===");
-    #[cfg(debug_build)]
+    #[cfg(debug_assertions)]
     println!("This is a DEBUG build");
 
-    #[cfg(release_build)]
+    #[cfg(not(debug_assertions))]
     println!("This is a RELEASE build");
-
-    #[cfg(has_build_info)]
-    println!("Build info is available");
 }

@@ -13,6 +13,8 @@ tauri = { version = "2.10.0" }
 serde = "1.0"
 thiserror = "2"
 winterfox-configs = { path = "../configs" }
+schemars = "0.8"
 
 [build-dependencies]
+schemars = "0.8"
 tauri-plugin = { version = "2.5.3", features = ["build"] }

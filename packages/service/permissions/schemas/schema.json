@@ -295,6 +295,42 @@
       "type": "string",
       "oneOf": [
         {
+          "description": "Enables the debug command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-debug",
+          "markdownDescription": "Enables the debug command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the debug command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-debug",
+          "markdownDescription": "Denies the debug command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the error command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-error",
+          "markdownDescription": "Enables the error command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the error command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-error",
+          "markdownDescription": "Denies the error command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the info command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-info",
+          "markdownDescription": "Enables the info command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the info command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-info",
+          "markdownDescription": "Denies the info command without any pre-configured scope."
+        },
+        {
           "description": "Enables the ping command without any pre-configured scope.",
           "type": "string",
           "const": "allow-ping",
@@ -307,10 +343,34 @@
           "markdownDescription": "Denies the ping command without any pre-configured scope."
         },
         {
-          "description": "Default permissions for the plugin\n#### This default permission set includes:\n\n- `allow-ping`",
+          "description": "Enables the trace command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-trace",
+          "markdownDescription": "Enables the trace command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the trace command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-trace",
+          "markdownDescription": "Denies the trace command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the warn command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-warn",
+          "markdownDescription": "Enables the warn command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the warn command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-warn",
+          "markdownDescription": "Denies the warn command without any pre-configured scope."
+        },
+        {
+          "description": "Default permissions for the plugin\n#### This default permission set includes:\n\n- `allow-ping`\n- `allow-info`\n- `allow-error`\n- `allow-warn`\n- `allow-debug`\n- `allow-trace`",
           "type": "string",
           "const": "default",
-          "markdownDescription": "Default permissions for the plugin\n#### This default permission set includes:\n\n- `allow-ping`"
+          "markdownDescription": "Default permissions for the plugin\n#### This default permission set includes:\n\n- `allow-ping`\n- `allow-info`\n- `allow-error`\n- `allow-warn`\n- `allow-debug`\n- `allow-trace`"
         }
       ]
     }

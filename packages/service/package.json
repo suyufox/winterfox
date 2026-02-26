@@ -8,9 +8,16 @@
   "main": "./dist-js/index.cjs",
   "module": "./dist-js/index.js",
   "exports": {
-    "types": "./dist-js/index.d.ts",
-    "import": "./dist-js/index.js",
-    "require": "./dist-js/index.cjs"
+    ".": {
+      "types": "./dist-js/index.d.ts",
+      "import": "./dist-js/index.js",
+      "require": "./dist-js/index.cjs"
+    },
+    "./log": {
+      "import": "./dist/log/index.js",
+      "require": "./dist/log/index.cjs",
+      "types": "./dist/log/index.d.ts"
+    }
   },
   "files": [
     "dist-js",
@@ -19,7 +26,8 @@
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "pnpm build",
-    "pretest": "pnpm build"
+    "pretest": "pnpm build",
+    "postinstall": "rollup -c"
   },
   "dependencies": {
     "@tauri-apps/api": "^2.0.0",

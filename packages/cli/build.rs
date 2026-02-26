@@ -7,6 +7,7 @@ fn main() {
     println!("cargo:rerun-if-changed=Cargo.toml");
     println!("cargo:rerun-if-changed=package.json");
     println!("cargo:rerun-if-changed=build.rs");
+    println!("cargo:rerun-if-changed=../../.git");
 
     // 从 Cargo 环境变量获取信息
     let version = env::var("CARGO_PKG_VERSION").unwrap_or_else(|_| "0.1.0".to_string());
@@ -79,7 +80,7 @@ pub const TARGET: &str = "{}";
 pub const PROFILE: &str = "{}";
 
 /// Rust 编译器
-pub const RUSTC: &str = "{}";
+pub const RUSTC: &str = r"{}";
 
 /// 完整的版本字符串
 pub const FULL_VERSION: &str = "{} v{} ({} {})";
@@ -152,14 +153,6 @@ Rust Compiler: {{}}",
     println!("cargo:warning=Target: {}, Profile: {}", target, profile);
     println!("cargo:warning=Git: {} on {}", git_hash, git_branch);
     println!("cargo:warning=Build timestamp: {}", build_timestamp);
-
-    // 设置构建配置标志
-    println!("cargo:rustc-cfg=has_build_info");
-    if profile == "release" {
-        println!("cargo:rustc-cfg=release_build");
-    } else {
-        println!("cargo:rustc-cfg=debug_build");
-    }
 }
 
 fn get_git_hash() -> Option<String> {

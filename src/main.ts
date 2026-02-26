@@ -1,15 +1,23 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import PrimeVue from 'primevue/config';
+import Aura from '@primeuix/themes/aura';
 
 import App from './App.vue'
 import router from './router'
 
 // 导入全局SCSS样式
-import '@/assets/styles/global.scss'
+// import '@/assets/styles/global.scss'
 
-const app = createApp(App)
+const winterfox = createApp(App)
 
-app.use(createPinia())
-app.use(router)
+winterfox.use(createPinia())
+winterfox.use(router)
+winterfox.use(PrimeVue, {
+  theme: {
+    preset: Aura
+  }
+});
 
-app.mount('#app')
+
+winterfox.mount('#winterfox')
